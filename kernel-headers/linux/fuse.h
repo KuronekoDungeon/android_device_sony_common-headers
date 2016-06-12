@@ -105,6 +105,7 @@ struct fuse_file_lock {
 #define FUSE_READDIRPLUS_AUTO (1 << 14)
 #define FUSE_ASYNC_DIO (1 << 15)
 #define FUSE_WRITEBACK_CACHE (1 << 16)
+#define FUSE_STACKED_IO		(1 << 18)
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 #define CUSE_UNRESTRICTED_IOCTL (1 << 0)
 #define FUSE_RELEASE_FLUSH (1 << 0)
@@ -294,7 +295,7 @@ struct fuse_create_in {
 struct fuse_open_out {
   uint64_t fh;
   uint32_t open_flags;
-  uint32_t padding;
+  int32_t         lower_fd;
 /* WARNING: DO NOT EDIT, AUTO-GENERATED CODE - SEE TOP FOR INSTRUCTIONS */
 };
 struct fuse_release_in {
